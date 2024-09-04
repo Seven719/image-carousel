@@ -1,0 +1,15 @@
+{
+  "name": "image-carousel",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "image",
+    "carousel"
+  ],
+  "author": "Iulian Nichifor",
+  "license": "ISC",
+  "description": ""
+}
