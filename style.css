@@ -50,3 +50,23 @@ body {
 .carousel-buttons.next {
   right: 1rem;
 }
+
+.container-dots {
+  text-align: center;
+  position: relative;
+}
+
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgba(0, 0, 0, 0.295);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot[data-active],
+.dot:hover {
+  background-color: #484848;
+}
