@@ -1,0 +1,52 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.container-slides {
+  width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.slide > img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.slide[data-active] {
+  opacity: 1;
+}
+
+.carousel-buttons {
+  position: absolute;
+  z-index: 1;
+  border: none;
+  background: none;
+  font-size: 3rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.carousel-buttons.prev {
+  left: 1rem;
+}
+
+.carousel-buttons.next {
+  right: 1rem;
+}
