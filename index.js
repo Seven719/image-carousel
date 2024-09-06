@@ -13,11 +13,7 @@ buttons.forEach((button) => {
     if (newIndex < 0) newIndex = slidesContainer.children.length - 1;
     if (newIndex >= slidesContainer.children.length) newIndex = 0;
 
-    slidesContainer.children[newIndex].dataset.active = true;
-    delete activeSlide.dataset.active;
-
-    dotsContainer.children[newIndex].dataset.active = true;
-    delete activeDot.dataset.active;
+    updateActiveDataset(activeSlide, activeDot, newIndex);
   });
 });
 
@@ -26,10 +22,14 @@ dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
     const activeSlide = slidesContainer.querySelector("[data-active]");
     const activeDot = dotsContainer.querySelector("[data-active]");
 
-    slidesContainer.children[index].dataset.active = true;
-    delete activeSlide.dataset.active;
-
-    dotsContainer.children[index].dataset.active = true;
-    delete activeDot.dataset.active;
+    updateActiveDataset(activeSlide, activeDot, index);
   });
 });
+
+const updateActiveDataset = (activeSlide, activeDot, index) => {
+  slidesContainer.children[index].dataset.active = true;
+  delete activeSlide.dataset.active;
+
+  dotsContainer.children[index].dataset.active = true;
+  delete activeDot.dataset.active;
+};
