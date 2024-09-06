@@ -1,22 +1,35 @@
 const buttons = document.querySelectorAll("[data-carousel-button]");
+const dotsContainer = document.querySelector("[data-dots]");
+const slidesContainer = document.querySelector("[data-carousel]");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
     const offset = button.dataset.carouselButton === "next" ? 1 : -1;
-    const slides = document.querySelector("[data-carousel]");
-    const dots = document.querySelector("[data-dots]");
 
-    const activeSlide = slides.querySelector("[data-active]");
-    const activeDot = dots.querySelector("[data-active]");
+    const activeSlide = slidesContainer.querySelector("[data-active]");
+    const activeDot = dotsContainer.querySelector("[data-active]");
 
-    let newIndex = [...slides.children].indexOf(activeSlide) + offset;
-    if (newIndex < 0) newIndex = slides.children.length - 1;
-    if (newIndex >= slides.children.length) newIndex = 0;
+    let newIndex = [...slidesContainer.children].indexOf(activeSlide) + offset;
+    if (newIndex < 0) newIndex = slidesContainer.children.length - 1;
+    if (newIndex >= slidesContainer.children.length) newIndex = 0;
 
-    slides.children[newIndex].dataset.active = true;
+    slidesContainer.children[newIndex].dataset.active = true;
     delete activeSlide.dataset.active;
 
-    dots.children[newIndex].dataset.active = true;
+    dotsContainer.children[newIndex].dataset.active = true;
+    delete activeDot.dataset.active;
+  });
+});
+
+dotsContainer.querySelectorAll(".dot").forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    const activeSlide = slidesContainer.querySelector("[data-active]");
+    const activeDot = dotsContainer.querySelector("[data-active]");
+
+    slidesContainer.children[index].dataset.active = true;
+    delete activeSlide.dataset.active;
+
+    dotsContainer.children[index].dataset.active = true;
     delete activeDot.dataset.active;
   });
 });
