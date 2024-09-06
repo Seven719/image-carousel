@@ -66,9 +66,15 @@ body {
   background-color: rgba(0, 0, 0, 0.295);
   border-radius: 50%;
   display: inline-block;
+  border: none;
 }
 
 .dot[data-active],
 .dot:hover {
   background-color: #484848;
+}
+
+.carousel-buttons:focus,
+.dot:focus {
+  outline: 1px solid white;
 }
